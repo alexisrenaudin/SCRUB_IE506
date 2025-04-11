@@ -8,8 +8,8 @@ from tqdm import tqdm
 meta_file = "data/VGG-Face2/meta/identity_meta.csv"
 train_data_root = "data/VGG-Face2/data/train/"
 '''
-meta_file = "/kaggle/input/vgg-face2-a/vggface2_train/train/"
-train_data_root = "/kaggle/input/vgg-face2-a/identity_meta.csv"
+meta_file = "/kaggle/input/vgg-face2-a/identity_meta.csv"
+train_data_root = "/kaggle/input/vgg-face2-a/vggface2_train/train/"
 test_data_root = ""
 
 

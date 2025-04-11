@@ -43,7 +43,8 @@ def get_image(image_path, index, resize_to):
     label = np.expand_dims(label, axis=0)
     return image, label
 
-def make_dataset(data_root, classes, split=False, resize_to=None, num_samples=500, dest="data/lacuna100"):
+def make_dataset(data_root, classes, split=False, resize_to=None, num_samples=500, dest="/kaggle/input/lacuna100"):
+    #dest="data/lacuna100"
 
     try:
         os.makedirs(os.path.join(dest,'train'))
@@ -113,6 +114,7 @@ def make_dataset(data_root, classes, split=False, resize_to=None, num_samples=50
         print ("Error! test set did not saved as the sizes are zero")
 
 if __name__ == "__main__":
-    make_dataset(train_data_root, lacuna100, split=True, resize_to=(32,32), dest="data/lacuna100")
-    make_dataset(train_data_root, lacuna10, split=True, resize_to=(32,32), dest="data/lacuna10")
+    make_dataset(train_data_root, lacuna100, split=True, resize_to=(32,32), dest="/kaggle/input/lacuna100")
+    #dest="data/lacuna100"
+    make_dataset(train_data_root, lacuna10, split=True, resize_to=(32,32), dest="/kaggle/input/lacuna10")
 

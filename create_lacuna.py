@@ -114,7 +114,7 @@ def make_dataset(data_root, classes, split=False, resize_to=None, num_samples=50
         print ("Error! test set did not saved as the sizes are zero")
 
 if __name__ == "__main__":
-    make_dataset(train_data_root, lacuna100, split=True, resize_to=(32,32), dest="/kaggle/input/lacuna100")
+    make_dataset(train_data_root, lacuna100, split=True, resize_to=(32,32), dest="/kaggle/working/lacuna100")
     #dest="data/lacuna100"
-    make_dataset(train_data_root, lacuna10, split=True, resize_to=(32,32), dest="/kaggle/input/lacuna10")
+    make_dataset(train_data_root, lacuna10, split=True, resize_to=(32,32), dest="/kaggle/working/lacuna10")
 

@@ -68,6 +68,11 @@ class Small_Lacuna6(VisionDataset):
         data=np.array(self.data)
         sub_ds_data_list=[]
         sub_ds_target_list=[]
+        
+        for i in range(6):
+            num_samples = np.sum(targets == i)
+            print(f"Class {i} has {num_samples} samples")
+
         for i in range(6):
             if self.train:
                 sub_cls_id = np.random.choice(np.where(targets==i)[0],125,replace=False)

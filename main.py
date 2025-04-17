@@ -190,7 +190,8 @@ if __name__ == '__main__':
     use_cuda = not args.no_cuda and torch.cuda.is_available()
     args.device = torch.device("cuda" if use_cuda else "cpu")
 
-    os.makedirs('checkpoints', exist_ok=True)
+    #os.makedirs('checkpoints', exist_ok=True)
+    os.makedirs('/kaggle/working/logs', exist_ok=True)
 
     train_loader, valid_loader, test_loader = datasets.get_loaders(args.dataset, class_to_replace=args.forget_class,
                                                      num_indexes_to_replace=args.num_to_forget, confuse_mode=args.confuse_mode,
@@ -213,7 +214,7 @@ if __name__ == '__main__':
     model_init = copy.deepcopy(model)
     
 
-    torch.save(model.state_dict(), f"checkpoints/{args.name}_init.pt")
+    torch.save(model.state_dict(), f"logs/{args.name}_init.pt")
     
     parameters = model.parameters()
     if args.unfreeze_start is not None:
@@ -245,7 +246,7 @@ if __name__ == '__main__':
                 run_epoch(args, model, model_init, train_loader, criterion, optimizer, scheduler, epoch, weight_decay, mode='dry_run')
             run_epoch(args, model, model_init, test_loader, criterion, optimizer, scheduler, epoch, weight_decay, mode='test')
         if epoch % 5 == 0:
-            torch.save(model.state_dict(), f"checkpoints/{args.name}_{epoch}.pt")
+            torch.save(model.state_dict(), f"logs/{args.name}_{epoch}.pt")
         print(f'Epoch Time: {np.round(time.time()-t1,2)} sec')
     print (f'Pure training time: {train_time} sec')
 

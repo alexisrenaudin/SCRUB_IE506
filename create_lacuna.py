@@ -14,7 +14,7 @@ test_data_root = ""
 
 
 meta = pd.read_csv(meta_file,quotechar='"',skipinitialspace=True)
-large_classes = meta[meta['Sample_Num']>='400]['Class_ID'].values.tolist()
+large_classes = meta[meta['Sample_Num']>=400]['Class_ID'].values.tolist()
 
 large_classes_exist = []
 for _dir in large_classes:

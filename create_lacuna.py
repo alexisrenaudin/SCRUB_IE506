@@ -14,7 +14,7 @@ test_data_root = ""
 
 
 meta = pd.read_csv(meta_file,quotechar='"',skipinitialspace=True)
-large_classes = meta[meta['Sample_Num']>=500]['Class_ID'].values.tolist()
+large_classes = meta[meta['Sample_Num']>='400]['Class_ID'].values.tolist()
 
 large_classes_exist = []
 for _dir in large_classes:
@@ -25,7 +25,7 @@ for _dir in large_classes:
         pass
 
 
-print ("Number of classes with more than 500 samples: \t", len(large_classes_exist))
+print ("Number of classes with more than 400 samples: \t", len(large_classes_exist))
 
 selected_classes = np.random.choice(large_classes_exist, 110)
 
@@ -43,7 +43,7 @@ def get_image(image_path, index, resize_to):
     label = np.expand_dims(label, axis=0)
     return image, label
 
-def make_dataset(data_root, classes, split=False, resize_to=None, num_samples=500, dest="/kaggle/input/lacuna100"):
+def make_dataset(data_root, classes, split=False, resize_to=None, num_samples=400, dest="/kaggle/input/lacuna100"):
     #dest="data/lacuna100"
 
     try:
@@ -63,8 +63,8 @@ def make_dataset(data_root, classes, split=False, resize_to=None, num_samples=50
                 images.append(fil)
         selected_images = np.random.choice(images, num_samples)
         if split == True:
-            selected_images_train = selected_images[:400]
-            selected_images_test = selected_images[400:]
+            selected_images_train = selected_images[:320] # we keep the same ration : 0.8 for train set and 0.2 for test set
+            selected_images_test = selected_images[320:]
         else:
             selected_images_train = selected_images
             selected_images_test = []

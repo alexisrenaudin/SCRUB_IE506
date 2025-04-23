@@ -7,9 +7,12 @@ from tqdm import tqdm
 '''
 meta_file = "data/VGG-Face2/meta/identity_meta.csv"
 train_data_root = "data/VGG-Face2/data/train/"
-'''
+
 meta_file = "/kaggle/input/vgg-face2-a/identity_meta.csv"
 train_data_root = "/kaggle/input/vgg-face2-a/vggface2_test/test/"
+'''
+meta_file = "/home/rahulvaishnav/Alexis/archive/identity_meta.csv"
+train_data_root = "/home/rahulvaishnav/Alexis/archive/vggface2_test/test"
 test_data_root = ""
 
 
@@ -43,7 +46,7 @@ def get_image(image_path, index, resize_to):
     label = np.expand_dims(label, axis=0)
     return image, label
 
-def make_dataset(data_root, classes, split=False, resize_to=None, num_samples=400, dest="/kaggle/input/lacuna100"):
+def make_dataset(data_root, classes, split=False, resize_to=None, num_samples=400, dest="/home/rahulvaishnav/Alexis/lacuna100"):
     #dest="data/lacuna100"
 
     try:
@@ -114,7 +117,7 @@ def make_dataset(data_root, classes, split=False, resize_to=None, num_samples=40
         print ("Error! test set did not saved as the sizes are zero")
 
 if __name__ == "__main__":
-    make_dataset(train_data_root, lacuna100, split=True, resize_to=(32,32), dest="/kaggle/working/lacuna100")
+    make_dataset(train_data_root, lacuna100, split=True, resize_to=(32,32), dest="/home/rahulvaishnav/Alexis/lacuna100")
     #dest="data/lacuna100"
-    make_dataset(train_data_root, lacuna10, split=True, resize_to=(32,32), dest="/kaggle/working/lacuna10")
+    make_dataset(train_data_root, lacuna10, split=True, resize_to=(32,32), dest="/home/rahulvaishnav/Alexis/lacuna10")
 

@@ -133,7 +133,7 @@ class Small_Lacuna5(VisionDataset):
             if self.train:
                 sub_cls_id = np.random.choice(np.where(targets==i)[0],100,replace=False)
             else:
-                sub_cls_id = np.random.choice(np.where(targets==i)[0],80,replace=False)
+                sub_cls_id = np.random.choice(np.where(targets==i)[0],100,replace=False)
                 #np.where(ds.targets==i)[0]                
             sub_ds_data_list.append(data[sub_cls_id,:,:,:])
             sub_ds_target_list.append(targets[sub_cls_id])

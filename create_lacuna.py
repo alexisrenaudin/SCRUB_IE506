@@ -39,7 +39,7 @@ def get_image(image_path, index, resize_to):
     label = np.expand_dims(label, axis=0)
     return image, label
 
-def make_dataset(data_root, classes, split=False, resize_to=None, num_samples=400, dest="/home/rahulvaishnav/Alexis/Lacuna/Lacuna100"):
+def make_dataset(data_root, classes, split=False, resize_to=None, num_samples=500, dest="/home/rahulvaishnav/Alexis/Lacuna/Lacuna100"):
     #dest="data/lacuna100"
 
     try:
